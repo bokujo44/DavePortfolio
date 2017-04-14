@@ -2,21 +2,22 @@ class PortfoliosController < ApplicationController
 	def index
 		@portfolio_items = Portfolio.all
 	end
-end
-def new
-	@portfolio_item = Portfolio.new
-end
 
-def create
-	@portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
+	def new
+		@portfolio_item = Portfolio.new
+	end
 
- respond_to do |format|
-      if @portfolio_item.save
-        format.html { redirect_to portfolios_path, notice: 'Post is complete' }
+	def create
+		@portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
+
+ 		respond_to do |format|
+      		if @portfolio_item.save
+        		format.html { redirect_to portfolios_path, notice: 'Post is complete' }
        
-      else
-        format.html { render :new }
+      		else
+        		format.html { render :new }
        
-      end
-    end
-  
+      		end
+    	end
+  	end
+end

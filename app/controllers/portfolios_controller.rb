@@ -19,8 +19,7 @@ class PortfoliosController < ApplicationController
         	end
         end
      end
-
-  	def edit
+def edit
   		@portfolio_item = Portfolio.find(params[:id])
   	end
 
@@ -28,10 +27,11 @@ class PortfoliosController < ApplicationController
     respond_to do |format|
       if @portfolio_item.update(params.require(:portfolio).permit(:title, :subtitle, :body))
         format.html { redirect_to portfolio_path, notice: 'The record successfully updated.' }
-        
-      else
+         else
         format.html { render :edit }
     end
+  end  
 end
+
 end
-end
+

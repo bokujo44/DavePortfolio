@@ -31,6 +31,7 @@ def edit
 end
 
 def update
+
   respond_to do |format|
     if @portfolio_item.update(portfolio_params)
       format.html { redirect_to portfolio_path, notice: 'record updated.' }
@@ -47,7 +48,6 @@ end
 
 def destroy
   # Perform the lookup
-  @portfolio_item = Portfolio.find(params[:id])
 
   # Destroy/delete the record
    @portfolio_item.destroy

@@ -1,22 +1,34 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_sidebar_topics, except: [:update, :create, :destroy, :toggle_status]
   layout "blog"
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
   # GET /blogs
   # GET /blogs.json
-  def index
-    @blogs = Blog.special_blogs
-    @page_title = "My Blog"
+    def index
+    if logged_in?(:site_admin)
+      @blogs = Blog.recent.page(params[:page]).per(5)
+    else
+      @blogs = Blog.published.recent.page(params[:page]).per(5)
+    end
+    @page_title = "My Portfolio Blog"
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
-  def show
+   def show
+    if logged_in?(:site_admin) || @blog.published?
+      @blog = Blog.includes(:comments).friendly.find(params[:id])
+      @comment = Comment.new
+
       @page_title = @blog.title
       @seo_keywords = @blog.body
+    else
+      redirect_to blogs_path, notice: "You are not authorized to access this page"
+    end
   end
   
-
   # GET /blogs/new
   def new
     @blog = Blog.new
@@ -34,7 +46,7 @@ class BlogsController < ApplicationController
     respond_to do |format|
       if @blog.save
         format.html { redirect_to @blog, notice: 'Post is complete' }
-        else
+       else
         format.html { render :new }
       end
     end
@@ -58,6 +70,7 @@ class BlogsController < ApplicationController
     @blog.destroy
     respond_to do |format|
       format.html { redirect_to blogs_url, notice: 'Post was removed.' }
+        format.json { head :no_content }
       end
   end
 
@@ -68,7 +81,7 @@ class BlogsController < ApplicationController
           @blog.draft!
         end
 
-    redirect_to blogs_url, notice: 'Post has been updated'
+    redirect_to blogs_url, notice: 'Post has been updated.'
   end
 
   private

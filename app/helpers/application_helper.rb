@@ -5,11 +5,11 @@ module ApplicationHelper
       " ".html_safe +
       (link_to "Login", new_user_session_path, class: style)
     else
-      link_to "Logout", destroy_user_session_path, method: :delete, class: style
+      link_to "Logout", destroy_user_session_path, method: :delete
     end
   end
 
-  def source_helper(styles)
+  def source_helper(layout_name)
     if session[:source]
       greeting = "Thanks for visiting me from #{session[:source]}, please feel free to #{ link_to 'contact me', contact_path } if you'd like to work together."
       content_tag(:div, greeting.html_safe, class: styles)

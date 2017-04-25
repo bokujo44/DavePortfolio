@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>DevcampPortfolio</title>
     <%= csrf_meta_tags %>
 
@@ -9,15 +11,24 @@
   </head>
 
   <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <div class="site-wrapper">
 
- 
+      <div class="site-wrapper-inner">
 
-    <%= yield %>
+        <div class="cover-container">
 
-    <% if session[:source] %>
-     Thanks for checking me out on <%= session[:source] %>
-     <%end%>
+         <%= render "shared/application_nav", %>
+
+        
+
+         <%= yield %>
+
+        
+         <% if session[:source] %>
+          Thanks for checking me out on <%= session[:source] %>
+         <%end%>
+     </div>
+     </div>
+     </div>
   </body>
 </html>

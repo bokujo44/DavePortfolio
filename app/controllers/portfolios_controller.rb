@@ -56,12 +56,6 @@ def show
 end
 
 def destroy
-  # Perform the lookup
-<<<<<<< HEAD
-
-=======
->>>>>>> authorization
-  # Destroy/delete the record
    @portfolio_item.destroy
 
    # Redirect

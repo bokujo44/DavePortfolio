@@ -33,7 +33,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Your post is now live.' }
+        format.html { redirect_to @blog, notice: 'Post is now live.' }
       else
         format.html { render :new }
       end
@@ -45,7 +45,7 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
+        format.html { redirect_to @blog, notice: 'Blog has been updated.' }
       else
         format.html { render :edit }
       end

@@ -9,7 +9,7 @@ puts "3 Topics created"
 10.times do |blog|
   Blog.create!(
     title: "My Blog Post #{blog}",
-    body: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+    body: "The 757 was produced in two fuselage lengths. The original 757-200 entered service in 1983; the 757-200PF, a package freighter (PF) variant, and the 757-200M, a passenger-freighter combi model, debuted in the late 1980s. The stretched 757-300, the longest narrow-body twinjet ever produced,[2] began service in 1999. Passenger 757-200s have been modified to special freighter (SF) specification for cargo use, while military derivatives include the C-32 transport, VIP carriers, and other multi-purpose aircraft. Private and government operators have also customized the 757 for research and transport roles. All 757s are powered by Rolls-Royce RB211 or Pratt & Whitney PW2000 series turbofans.",
     topic_id: Topic.last.id
   )
 end

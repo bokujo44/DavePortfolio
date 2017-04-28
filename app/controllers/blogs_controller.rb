@@ -7,7 +7,7 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @blogs = Blog.page(params[:page]).per(5)
-    @page_title = "My Portfolio"
+    @page_title = "Portfolio"
   end
 
   # GET /blogs/1
@@ -33,7 +33,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Post is now live.' }
+        format.html { redirect_to @blog, notice: 'Post is live.' }
       else
         format.html { render :new }
       end
@@ -45,7 +45,7 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'Blog has been updated.' }
+        format.html { redirect_to @blog, notice: 'Blog is updated.' }
       else
         format.html { render :edit }
       end
@@ -69,7 +69,7 @@ class BlogsController < ApplicationController
       @blog.draft!
     end
         
-    redirect_to blogs_url, notice: 'Post status has been updated.'
+    redirect_to blogs_url, notice: 'Post status is updated.'
   end
 
   private

@@ -11,13 +11,13 @@ module ApplicationHelper
 
   def source_helper(layout_name)
     if session[:source]
-      greeting = "Thanks for visiting me from #{session[:source]} and you are on the #{layout_name} layout"
+      greeting = "Thanks for checking me out #{session[:source]} and you are on the #{layout_name} layout"
       content_tag(:p, greeting, class: "source-greeting")
     end
   end
 
   def copyright_generator
-    DevcampViewTool::Renderer.copyright 'Davd S Larsen', 'All rights reserved'
+    DevcampViewTool::Renderer.copyright 'Dave Larsen', 'All rights reserved'
   end
 
   def nav_items

@@ -49,12 +49,15 @@ class PortfoliosController < ApplicationController
     end
   end
 
-  def show
-  end
 
-  def destroy
-    # Destroy/delete the record
-    @portfolio_item.destroy
+def destroy
+  # Perform the lookup
+
+
+
+  # Destroy/delete the record
+   @portfolio_item.destroy
+
 
     # Redirect
     respond_to do |format|

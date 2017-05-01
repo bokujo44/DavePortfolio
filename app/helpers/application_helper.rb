@@ -15,3 +15,4 @@ module ApplicationHelper
       content_tag(:div, greeting.html_safe, class: styles)
     end
   end
+end

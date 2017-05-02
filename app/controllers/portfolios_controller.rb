@@ -28,7 +28,7 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to portfolios_path, notice: 'Item is now live.' }
+        format.html { redirect_to portfolios_path, notice: 'Your portfolio item is now live.' }
       else
         format.html { render :new }
       end
@@ -48,15 +48,12 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def show
+  end
 
-def destroy
-  # Perform the lookup
-
-
-
-  # Destroy/delete the record
-   @portfolio_item.destroy
-
+  def destroy
+    # Destroy/delete the record
+    @portfolio_item.destroy
 
     # Redirect
     respond_to do |format|

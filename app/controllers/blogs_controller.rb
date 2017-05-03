@@ -57,7 +57,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'Post was removed.' }
+      format.html { redirect_to blogs_url, notice: 'Post has been removed.' }
       format.json { head :no_content }
     end
   end
@@ -69,7 +69,7 @@ class BlogsController < ApplicationController
       @blog.draft!
     end
         
-    redirect_to blogs_url, notice: 'Post status has been updated.'
+    redirect_to blogs_url, notice: 'Post status updated.'
   end
 
   private
